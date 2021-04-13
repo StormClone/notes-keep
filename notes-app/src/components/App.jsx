@@ -20,7 +20,7 @@ function App() {
     .catch(err => {console.log(err);})
   }, [notes]);
 
-  loading && "Loading..."; 
+  if (loading) return "Loading..."; 
 
   function addNote(newNote) {
     setNotes(prevNotes => {
