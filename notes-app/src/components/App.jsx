@@ -9,7 +9,8 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/notes/')
+    //'http://localhost:5000/notes/'
+    axios.get('https://note-keeps.herokuapp.com/notes/')
     .then(res => {
       setNotes(res.data)
     })
@@ -23,7 +24,8 @@ function App() {
   }
 
   function deleteNote(id) {
-    axios.delete(`http://localhost:5000/notes/${id}`)
+    //`http://localhost:5000/notes/${id}`
+    axios.delete(`https://note-keeps.herokuapp.com/notes/${id}`)
       .then(res => console.log(res.data));
   }
 

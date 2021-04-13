@@ -33,8 +33,9 @@ function Note(props) {
       content: note.content
     }
 
+    //`http://localhost:5000/notes/update/${props.id}`
     axios.put(
-     `http://localhost:5000/notes/update/${props.id}`,
+     `https://note-keeps.herokuapp.com/notes/update/${props.id}`,
       data
     ).then(res => console.log(res.data));
 
