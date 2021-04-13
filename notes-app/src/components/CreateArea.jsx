@@ -51,7 +51,7 @@ function CreateArea(props) {
     }
 
     axios.post(
-      'http://localhost:5000/notes/add',
+      '/notes/add',
       data
     ).then(res => console.log(res.data));
 
