@@ -7,15 +7,20 @@ import CreateArea from "./CreateArea";
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    setLoading(true)
     //'http://localhost:5000/notes/'
     axios.get('/notes/')
     .then(res => {
+      setLoading(false)
       setNotes(res.data)
     })
     .catch(err => {console.log(err);})
-  });
+  }, [notes]);
+
+  loading && "Loading..."; 
 
   function addNote(newNote) {
     setNotes(prevNotes => {
