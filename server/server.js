@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
@@ -25,7 +26,11 @@ app.use('/notes', notesRoutes);
 
 //Serve static assests if in production
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('../notes-app/build'));
+    app.use(express.static(path.resolve(__dirname, '../notes-app/build')));
+
+    app.get('*', function(req, res) {
+        res.sendFile(path.resolve(__dirname, '../notes-app/build', 'index.html'));
+      });
 }
 
 app.listen(port, () => {

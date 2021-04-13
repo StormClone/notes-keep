@@ -5,17 +5,17 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd ../notes-app/ && npm run build",
-    "install-client": "cd ../notes-app/ && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "build": "cd ../notes-app/ && npm install && npm run build",
     "start": "node server.js"
   },
   "author": "Michael Alv",
   "license": "ISC",
+
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.3"
+    "mongoose": "^5.12.3",
+    "path": "^0.12.7"
   }
 }
