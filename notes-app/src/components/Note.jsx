@@ -33,10 +33,14 @@ function Note(props) {
       content: note.content
     }
 
+    const headers = {
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    };
+
     //`http://localhost:5000/notes/update/${props.id}`
     axios.put(
      `/notes/update/${props.id}`,
-      data
+      data, headers
     ).then(res => console.log(res.data));
 
     setEditMode(false);

@@ -50,9 +50,13 @@ function CreateArea(props) {
       content: note.content
     }
 
+    const headers = {
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    };
+
     axios.post(
       '/notes/add',
-      data
+      data, headers
     ).then(res => console.log(res.data));
 
     setNote({
