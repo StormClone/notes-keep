@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     //'http://localhost:5000/notes/'
-    axios.get('https://note-keeps.herokuapp.com/notes/')
+    axios.get('/notes/')
     .then(res => {
       setNotes(res.data)
     })
@@ -25,7 +25,8 @@ function App() {
 
   function deleteNote(id) {
     //`http://localhost:5000/notes/${id}`
-    axios.delete(`https://note-keeps.herokuapp.com/notes/${id}`)
+    //https://note-keeps.herokuapp.com
+    axios.delete(`/notes/${id}`)
       .then(res => console.log(res.data));
   }
 
