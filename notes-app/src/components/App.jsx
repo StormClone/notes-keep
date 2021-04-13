@@ -18,7 +18,7 @@ function App() {
       setNotes(res.data)
     })
     .catch(err => {console.log(err);})
-  }, [notes]);
+  }, []);
 
   // if (loading) return "Loading..."; 
 
