@@ -41,8 +41,10 @@ function Note(props) {
     axios.put(
      `/notes/update/${props.id}`,
       data, headers
-    ).then(res => console.log(res.data));
-
+    ).then(res => {
+      console.log(res.data);
+      props.updateList();
+    });
     setEditMode(false);
   }
 

@@ -7,38 +7,51 @@ import CreateArea from "./CreateArea";
 
 function App() {
   const [notes, setNotes] = useState([]);
-  // const [loading, setLoading] = useState(true)
+  const [isUpdatedList, setUpdatedList] = useState([true])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // setLoading(true)
+    async function fetchData() {
+      setLoading(true)
     //'http://localhost:5000/notes/'
-    axios.get('/notes/')
+  axios.get('/notes/')
     .then(res => {
-      // setLoading(false)
+      setLoading(false)
+      setUpdatedList(true)
       setNotes(res.data)
     })
     .catch(err => {console.log(err);})
-  }, []);
+    }
+    fetchData();
+  }, [isUpdatedList]);
 
-  // if (loading) return "Loading..."; 
+  if (loading) return "Loading..."; 
+
+  function updateList() {
+    setUpdatedList(false)
+  }
 
   function addNote(newNote) {
     setNotes(prevNotes => {
       return [...prevNotes, newNote];
     });
+    updateList();
   }
 
   function deleteNote(id) {
     //`http://localhost:5000/notes/${id}`
     //https://note-keeps.herokuapp.com
     axios.delete(`/notes/${id}`)
-      .then(res => console.log(res.data));
+      .then(res => {
+        console.log(res.data);
+        updateList();
+      });
   }
 
   return (
     <div>
       <Header />
-      <CreateArea onAdd={addNote} />
+      <CreateArea onAdd={addNote} updateList={updateList}/>
       {notes.map(noteItem => {
         return (
           <Note
@@ -47,6 +60,7 @@ function App() {
             title={noteItem.title}
             content={noteItem.content}
             onDelete={deleteNote}
+            updateList={updateList}
           />
         );
       })}

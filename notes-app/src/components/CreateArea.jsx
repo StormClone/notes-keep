@@ -64,6 +64,7 @@ function CreateArea(props) {
       content: ""
     });
     setExpand(false);
+    props.updateList();
     event.preventDefault();
   }
 
