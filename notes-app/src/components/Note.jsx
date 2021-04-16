@@ -37,7 +37,6 @@ function Note(props) {
       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
     };
 
-    //`http://localhost:5000/notes/update/${props.id}`
     axios.put(
      `/notes/update/${props.id}`,
       data, headers

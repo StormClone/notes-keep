@@ -13,7 +13,6 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       setLoading(true)
-    //'http://localhost:5000/notes/'
   axios.get('/notes/')
     .then(res => {
       setLoading(false)
@@ -39,8 +38,6 @@ function App() {
   }
 
   function deleteNote(id) {
-    //`http://localhost:5000/notes/${id}`
-    //https://note-keeps.herokuapp.com
     axios.delete(`/notes/${id}`)
       .then(res => {
         console.log(res.data);
@@ -49,10 +46,11 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="page-container">
       <Header />
       <CreateArea onAdd={addNote} updateList={updateList}/>
-      {notes.map(noteItem => {
+      <div className="flex-notes">
+        {notes.map(noteItem => {
         return (
           <Note
             key={noteItem._id}
@@ -64,7 +62,8 @@ function App() {
           />
         );
       })}
-      <Footer />
+      </div>
+        <Footer />
     </div>
   );
 }
