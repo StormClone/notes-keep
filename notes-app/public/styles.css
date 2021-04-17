@@ -23,7 +23,7 @@ header {
 header h1 {
   color: #fff;
   font-family: "McLaren", cursive;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 footer {
@@ -42,11 +42,16 @@ footer p {
   position: relative;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-flow: column;
 }
 
-.flex-notes {
+.flex-notes-container {
   flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
 }
 
 a {
@@ -103,7 +108,7 @@ a {
 
 form.create-note {
   position: relative;
-  width: 480px;
+  width: 440px; /*Before was 480px */
   margin: 30px auto 20px auto;
   background: #fff;
   padding: 15px;

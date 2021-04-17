@@ -49,10 +49,10 @@ function App() {
     <div className="page-container">
       <Header />
       <CreateArea onAdd={addNote} updateList={updateList}/>
-      <div className="flex-notes">
+      <div className="flex-notes-container">
         {notes.map(noteItem => {
         return (
-          <Note
+          <Note className="flex-note"
             key={noteItem._id}
             id={noteItem._id}
             title={noteItem.title}
