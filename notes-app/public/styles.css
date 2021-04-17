@@ -139,3 +139,10 @@ form.create-note button {
   cursor: pointer;
   outline: none;
 }
+
+@media (max-width: 480px) {
+  form.create-note {
+    width: 300px; /*Before was 480px */
+    background-color: green;
+  }
+}
