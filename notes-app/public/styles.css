@@ -142,7 +142,6 @@ form.create-note button {
 
 @media (max-width: 480px) {
   form.create-note {
-    width: 300px; /*Before was 480px */
-    background-color: green;
+    width: 340px; /*Before was 480px */
   }
 }
