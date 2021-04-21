@@ -4,12 +4,13 @@ import HighlightIcon from "@material-ui/icons/Highlight";
 function Header() {
   return (
     <header>
-    <a href="/">
-      <h1>
+    
+      <h1><a href="/">
         <HighlightIcon />
         Note Keeps
+        </a>
       </h1>
-      </a>
+      
     </header>
   );
 }
