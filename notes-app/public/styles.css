@@ -148,20 +148,29 @@ form.create-note button {
   flex-direction: column;
   margin-top: 10px;
   flex-wrap: wrap;
+  z-index: 2;
 }
 
 .alert {
   flex: 1;
   margin-top: 10px;
-  display: none;
 }
 
 .hideAlert {
   display: none;
 }
 
+/* 480 */
 @media (max-width: 480px) {
   form.create-note {
     width: 340px; /*Before was 480px */
   }
+
+  .alert-container{
+    width: 50%;
+    position: relative;
+    justify-content: right;
+    align-items: flex-start;
+  }
+
 }
