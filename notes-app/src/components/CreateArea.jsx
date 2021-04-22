@@ -13,6 +13,7 @@ function CreateArea(props) {
   const [expand, setExpand] = useState(false);
   const [isMaxAlertOn, setMaxAlertOn] = useState(false);
   const [isEmptyAlertOn, setEmptyAlertOn] = useState(false);
+  const [isCreateAlertOn, setCreateAlertOn] = useState(false);
   const [note, setNote] = useState({
     title: "",
     content: ""
@@ -43,6 +44,13 @@ function CreateArea(props) {
     setEmptyAlertOn(true);
     setTimeout(() => {
       setEmptyAlertOn(false);
+    }, 5000);
+  }
+
+  function handleCreateAlert() {
+    setCreateAlertOn(true);
+    setTimeout(() => {
+      setCreateAlertOn(false);
     }, 5000);
   }
 
@@ -91,6 +99,7 @@ function CreateArea(props) {
       setExpand(false);
       props.updateList();
       event.preventDefault();
+      handleCreateAlert();
     }
   }
 
@@ -108,6 +117,12 @@ function CreateArea(props) {
         <div className={isEmptyAlertOn ? "" : "hideAlert"}>
         <Slide in={isEmptyAlertOn} direction="down">
             <Alert className="alert" severity="warning" variant="filled">Please type a Title and a Note.</Alert>
+          </Slide>
+        </div>
+
+        <div className={isCreateAlertOn ? "" : "hideAlert"}>
+            <Slide in={isCreateAlertOn} direction="down">
+            <Alert className="alert" severity="success" variant="filled">Note Created Successfully.</Alert>
           </Slide>
         </div>
       </div>
