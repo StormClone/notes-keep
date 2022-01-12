@@ -24,7 +24,7 @@ function App() {
     fetchData();
   }, [isUpdatedList]);
 
-  if (loading) return "Loading..."; 
+  // if (loading) return "Loading..."; 
 
   function updateList() {
     setUpdatedList(false)
@@ -48,9 +48,13 @@ function App() {
   return (
     <div className="page-container">
       <Header />
-      <CreateArea onAdd={addNote} updateList={updateList}/>
+      <CreateArea onAdd={addNote} updateList={updateList} />
+      {loading && <div className="loading-container"><img src='../loading.gif' alt="loading..."/></div>} 
+      
       <div className="flex-notes-container">
-        {notes.map(noteItem => {
+      {!loading && 
+        <div className="notes-container-notloading">
+          {notes.map(noteItem => {
         return (
           <Note className="flex-note"
             key={noteItem._id}
@@ -62,7 +66,10 @@ function App() {
           />
         );
       })}
+        </div>
+      }    
       </div>
+      
         <Footer />
     </div>
   );
